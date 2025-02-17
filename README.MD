@@ -1,23 +1,24 @@
-#HTML
+# dice 게임 만들기
 
-1. 컴포넌트가 시작되는 부모요소는 늘 하나다.
-2. 클래스를 부모요소에게 준 다음에 시작한다.
-3. 클래스를 마구잡이로 부여하지 않는다. 시맨틴 태그를 써서 해결
-   #CSS
-4. 클래스.클래스....: 여러가지 클래스가 한꺼번에 들어간 태그를 선택 -응용: #아이디#아이디...:여러가지 아이디가 한꺼번에 들어간 태그를 선택
-5. 선행 선택자 + 마지막 선택자: 마지막 선택자가 내가 스타일링을 줄 태그임.
-6. position:
-   -relative: 부모 요소로 지정, 기준이 됨
-   -absolute: 자식 요소로 지정, 기준을 따라감
-   **주의사항**: top, left 또는 top, right 또는 bottom, left 또는 bottom right로만 작성하면 됨.
-   -content:'';
-   **가상요소만드는 친구**:absolute를 섞어서 사용하면 개꿀
-   4.object-fit:
-   -cover: 찌그러진 사진을 예쁘게 펴줌. 단점: 위치 조정은 안됨
+1. 컴퓨터랑 붙는 게임
 
-#JS
+   - 나, 컴퓨터 배열이 존재
 
-1. document: DOM(Document Object Model): 웹 그 자체
-2. document.querySelector: 추노, CSS작성 규칙을 따라서 잡아옴. -예시: const body = document.querySelector('body') -예시: const btn = document.querySelector('body.btn')
-   **주의** 클래스명은 많은 곳에서 사용할 수 있기 때문에 btn은 복수가 될 수 도 있음.
-3. document.createElement: 태그를 만들어줌 -예시: const button = document.createElement('button')
+2. 각자 주사위 4개를 동시에 굴림
+
+   - 각 주사위별 시간차를 두어서 재미요소를 더 할 수 있음( setTimeout )
+   - 0.1초마다 주사위가 돌아가게끔 구현 (setInterval)
+   - 주사위 마다 각자의 값이 존재하게끔 구현
+   - index \* 1초 한 값만 딜레이가 있게끔 구현
+
+   -generateRandomNumber 라는 함수를 만들어서 1~6까지의 숫자가 나오도록 구현
+
+   - .1초마다 각 주사위의 값을 저장해 둔 index 값을 바꿔서 주사위의 모양 구현
+
+3. 주사위 값을 합산한 값이 높으면 승리 -배열의 모든 값 더하는 방법(reduce)
+
+4. 주사위 굴리기 버튼을 클릭해서 게임 시작
+
+5. 주사위가 모두 돌아가면 게임 끝나면서 버튼 문구를 한 판 더!
+
+6. 몇 대 몇인지에 대한 스코어도 출력해줌
