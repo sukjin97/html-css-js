@@ -1,71 +1,19 @@
-let dice = [
-  "https://cdn-icons-png.flaticon.com/128/0/751.png",
-  "https://cdn-icons-png.flaticon.com/128/10990/10990646.png",
-  "https://cdn-icons-png.flaticon.com/128/7262/7262393.png",
-  "https://cdn-icons-png.flaticon.com/128/0/963.png",
-  "https://cdn-icons-png.flaticon.com/128/0/780.png",
-  "https://cdn-icons-png.flaticon.com/128/0/165.png",
-];
+let width = 0;
+let height = 0;
 
-const divs = document.querySelectorAll("#root > div");
-let myDices = Array.from({ length: 4 }, (_, index) => {
-  const img = document.createElement("img");
-  img.alt = `${index + 1}번째 주사위`;
+document.addEventListener("resize", () => {
+  width = window.innerWidth;
+  height = window.innerheight;
 
-  return img;
-});
+  console.log({ width, height });
+  const x = Math.floor(width / 40);
+  console.log(x, "개의 바둑판을 좌우로 깔아주세요");
 
-let comDices = Array.from({ length: 4 }, (_, index) => {
-  const img = document.createElement("img");
-  img.alt = `${index + 1}번째 주사위`;
+  const y = Math.floor(height / 40);
 
-  return img;
-});
+  console.log(y, "개의 바둑판을 상하로 깔아주세요.");
 
-console.log(comDices);
+  let tiles = Array.from({ length: y }, (_, i) => i);
+  console.log(tiles);
+  tiles.forEach(() => Array.from({length:x}, (_ ,i) =>i))
 
-const makeNumber = () => Math.floor(Math.random() * 6);
-
-console.log(makeNumber());
-divs.forEach((div, index) => {
-  div.innerHTML = null;
-  if (index === 0) {
-    myDices.forEach((img) => {
-      img.src = dice[makeNumber()];
-
-      div.append(img);
-    });
-  } else {
-    comDices.forEach((img) => {
-      img.src = dice[makeNumber()];
-
-      div.append(img);
-    });
-  }
-});
-
-const button = document.querySelector("button");
-
-button.onclick = () => {
-  const id = setInterval(() => {
-    myDices.forEach((img) => {
-      img.src = dice[makeNumber()];
-      img.animate(
-        [{ transform: "rotate(0deg)" }, { transform: "rotate(1800deg)" }],
-        {
-          duration: 3000,
-        }
-      );
-    });
-  }, 100);
-  const countId = setInterval(() => {
-    if (time === 3) {
-      clearInterval(countId);
-      clearInterval(id);
-      time = 0;
-
-      return;
-    }
-    time += 1;
-  }, 1000);
-};
