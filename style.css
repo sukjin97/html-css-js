@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(-35deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(35deg);
+  }
+  100% {
+    transform: rotate(-35deg);
+  }
+}
+
+#root {
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: center;
+}
+
+#root div {
+  display: flex;
+  column-gap: 20px;
+}
+
+#root img {
+  border: 1px solid;
+  width: 50px;
+  height: 50px;
+  animation: roll 2s ease-in-out infinite;
+}
+
+#root button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
